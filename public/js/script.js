@@ -11,7 +11,7 @@ var obj;
 setInterval(cargarDatos, 5000);
 
 function cargarDatos() {
-    url = 'http://localhost:7000/getmovies';
+    url = '/getmovies';
     http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             movies.innerHTML = "";
@@ -71,7 +71,7 @@ function getMovie(index) {
 };
 
 function rateMovie(index, qualify) {
-    url = `http://localhost:7000/updaterating/${index}/${qualify}`;
+    url = `/updaterating/${index}/${qualify}`;
     console.log(index, qualify);
     obj[index].rate = qualify;
     http.open("GET", url);
@@ -121,7 +121,7 @@ document.addEventListener('click', e => {
 
 movieSubmit.addEventListener("click", e => {
     e.preventDefault();
-    url = "http://localhost:7000/addmovie"
+    url = "/addmovie"
     var fd = new FormData;
     fd.append("titulo", document.getElementById('MovieTitle').value);
     fd.append("year", document.getElementById('MovieYear').value);
