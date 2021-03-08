@@ -31,6 +31,8 @@ function cargarDatos() {
     return;
 };
 
+cargarDatos();
+
 function getMovie(index) {
     movieVisualizer.innerHTML = `
         <div class="container">
@@ -141,9 +143,5 @@ function reload() {
     document.getElementById('MovieImage').files[0] = "";
     document.getElementById('btnModal').click();
     tagContainer.innerHTML = "";
-    cargarDatos();
-}
-
-if (document.readyState == "loading") {
     cargarDatos();
 }
