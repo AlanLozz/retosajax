@@ -1,0 +1,57 @@
+.star-container input[type="radio"]{
+    display: none;
+}
+
+.star-container label {
+    font-size: 20px;
+    cursor: pointer;
+    color: #90a4ae;
+    transition: all 0.2s ease;
+    float: right;
+}
+
+.star-container input:not(:checked) ~ label:hover,
+.star-container input:not(:checked) ~ label:hover ~ label
+{
+    color: #00675b;
+}
+
+input:checked ~ label {
+    color: #00675b;
+}
+
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    width: 100%;
+    height: auto;
+    padding: .75rem 1.5rem;
+    background: #f7f7f9;
+    border: 0px solid #ced4da;
+    border-radius: 0;
+}
+
+.tag-container input {
+    background: none;
+    border: none;
+    width: fit-content;
+    flex: 1;
+}
+
+.tag-container input:focus {
+    outline: none;
+}
+
+.tag-container .tag {
+    background: #00675b;
+    color: white;
+    border-radius: 10px;
+    padding: .2rem;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+
+.fa-times {
+    cursor: pointer;
+}

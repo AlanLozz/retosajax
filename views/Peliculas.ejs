@@ -1,0 +1,82 @@
+<%= layout('layouts/index.ejs') %>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">
+                            Peliculas
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush" id="movieslist"></ul>
+                    </div>
+                </div>
+                <button class="btn btn-info btn-sm float-right" type="button" data-toggle="modal"
+                    data-target="#AddMovie">Agregar</button>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body" id="movieWatcher">
+                        <div class="alert alert-dark text-center" role="alert">
+                            ¡Aún no has seleccionado ninguna pelicula! <br>
+                            Selecciona una en el menú izquierdo
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="AddMovie" tabindex="-1" aria-labelledby="AddMovieLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Agregar Pelicula
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btnModal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="MovieForm">
+                        <div class="form-group">
+                            <label for="MovieTitle">Título: </label>
+                            <input type="text" class="form-control" placeholder="Nombre de la pelicula" id="MovieTitle"
+                                autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="MovieYear">Año: </label>
+                            <input type="text" class="form-control" placeholder="Año de publicación" id="MovieYear">
+                        </div>
+                        <div class="form-group">
+                            <label for="MovieDirector">Director: </label>
+                            <input type="text" class="form-control" placeholder="Nombre del director"
+                                id="MovieDirector">
+                        </div>
+                        <div class="form-group">
+                            <label for="MovieReparto">Reparto: </label>
+                            <div class="tag-container">
+                                <input id="MovieReparto" placeholder="Escribe un nombre y presiona 'control' para agregarlo" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="MovieSinopsis">Sinopsis: </label>
+                            <textarea class="form-control" rows="5" placeholder="Sinopsis de la pelicula"
+                                id="MovieSinopsis"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="MovieImage">Portada: </label>
+                            <input type="file" class="form-control" id="MovieImage">
+                        </div>
+                        <button type="submit" class="btn btn-success float-right" id="MovieSubmit"
+                            onclick="e=>saveMovie(e)">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
